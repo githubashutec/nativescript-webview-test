@@ -3,6 +3,7 @@ window.open = (url) => {
     console.log(url);
     if(url.includes("www.paypal.com") || url.includes("influencer-app.lifo.ai") || url.includes("influencer-beta.lifo.ai")) {
         originalWindowOpen(url)
+        window.nsWebViewBridge.emit("openInSameWindow", { url: url });
     } else {
         console.log("need to send message to native");
         window.nsWebViewBridge.emit("openInExternalBrowser", { url: url });

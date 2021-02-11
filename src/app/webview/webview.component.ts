@@ -21,6 +21,7 @@ export class WebviewComponent implements OnInit {
         // }
         webview.autoLoadJavaScriptFile('test.xjs', '~/assets/js/test.xjs');
         webview.on('openInExternalBrowser', (msg) => console.log('need to open in external browser',msg.data));
+        webview.on('openInSameWindow', (msg) => console.log('opened in same window',msg.data));
         // webview.autoExecuteJavaScript(`
         // helloWorld();
         // `
